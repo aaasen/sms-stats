@@ -13,18 +13,27 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/message_count"
+        android:layout_toLeftOf="@+id/address"
         android:text="@string/name_placeholder" />
 
     <TextView
+        android:id="@+id/address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/message_count"
+        android:text="@string/address_placeholder" />
+
+    <TextView
         android:id="@+id/message_count"
-        android:textStyle="bold"
-        android:layout_centerInParent="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
         android:layout_marginLeft="16dp"
-        android:text="@string/message_count_placeholder" />
-    
+        android:text="@string/message_count_placeholder"
+        android:textStyle="bold" />
+
 </RelativeLayout>

@@ -22,17 +22,9 @@ public class PeopleStatsActivity extends Activity {
 		setupActionBar();
 		
 		stats = (SMSStats) getIntent().getSerializableExtra(MainActivity.STAT_EXTRA);
-		
 		ListView listview = (ListView) findViewById(R.id.people_list);
-		
-		try {
-			adapter = new PeopleArrayAdapter(this, R.id.people_list, stats.getMessages());
-		} catch (NullPointerException e) {
-			
-		}
-
+		adapter = new PeopleArrayAdapter(this, R.id.people_list, stats);
 		listview.setAdapter(adapter);
-
 	}
 
 	/**

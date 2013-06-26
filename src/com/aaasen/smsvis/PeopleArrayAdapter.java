@@ -1,24 +1,25 @@
 package com.aaasen.smsvis;
 
-import java.util.ArrayList;
-
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.aaasen.smsvis.util.SMS;
+import com.aaasen.smsvis.util.Person;
+import com.aaasen.smsvis.util.SMSStats;
 
-public class PeopleArrayAdapter extends ArrayAdapter<SMS> {
-	private ArrayList<SMS> messages;
+public class PeopleArrayAdapter extends ArrayAdapter<Person> {
+	private SMSStats stats;
 	private final Context context;
 
-	public PeopleArrayAdapter(Context context, int textViewResourceIdList, ArrayList<SMS> messages) {
-		super(context, R.layout.person_fragment, messages);
+	public PeopleArrayAdapter(Context context, int textViewResourceIdList, SMSStats stats) {
+		super(context, R.layout.person_fragment, stats.getPeople());
+		Log.d("people", Integer.toString(stats.getPeople().size()));
 		this.context = context;
-		this.messages = messages;
+		this.stats = stats;
 	}
 
 	@Override
@@ -26,17 +27,20 @@ public class PeopleArrayAdapter extends ArrayAdapter<SMS> {
 		LayoutInflater inflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		
-		SMS message = messages.get(position);
+		Person person = stats.getPeople().get(position);
 		
 		View personView = inflater.inflate(R.layout.person_fragment, parent, false);
 	    
 		TextView name = (TextView) personView.findViewById(R.id.name);
-	    name.setText(message.getAddress());
-
-		TextView messageCount = (TextView) personView.findViewById(R.id.message_count);
-	    messageCount.setText(message.getBody());
+	    name.setText(person.getName());
+		
+	    TextView address = (TextView) personView.findViewById(R.id.address);
+	    address.setText(person.getAddress());
 	    
-	    personView.setTag(message);
+		TextView messageCount = (TextView) personView.findViewById(R.id.message_count);
+	    messageCount.setText(Integer.toString(person.getMessages().size()));
+	    
+	    personView.setTag(person);
 	    
 		return personView;
 
