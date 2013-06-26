@@ -2,6 +2,16 @@ package com.aaasen.smsvis.util;
 
 import java.util.Date;
 
+/**
+ * A simple container for SMS message data.
+ * 
+ * This class only contains very basic fields relevant to data analysis;
+ * if you want to make a messaging app or something that requires more data,
+ * you will need to extend it.
+ * 
+ * @author 
+ */
+
 public class SMS {
 	private String body, address;
 	private Date date;
