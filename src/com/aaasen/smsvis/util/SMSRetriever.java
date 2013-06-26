@@ -25,18 +25,26 @@ public class SMSRetriever {
 		do {
 			HashMap<String, String> message = new HashMap<String, String>();
 
+//			StringBuilder sb = new StringBuilder();
+			
 			for (int i = 0; i < cursor.getColumnCount(); i++) {
+//				sb.append(" {" + cursor.getColumnName(i) + " : " + cursor.getString(i) + "} ");
 				message.put(cursor.getColumnName(i), cursor.getString(i));
 			}
-
+			
+//			Log.d("SMS", sb.toString());
+			
 			messages.add(new SMS(
 					message.get("body"),
 					message.get("address"),
-					message.get("date")
+					message.get("date"),
+					message.get("type")
 					));
 
 		} while(cursor.moveToNext());
 
+		cursor.close();
+		
 		return messages;
 	}
 	

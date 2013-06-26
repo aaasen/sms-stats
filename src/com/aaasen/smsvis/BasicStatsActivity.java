@@ -22,7 +22,7 @@ public class BasicStatsActivity extends Activity {
 		stats = (SMSStats) getIntent().getSerializableExtra(MainActivity.STAT_EXTRA);
 		
 		TextView title = (TextView) findViewById(R.id.text);
-		title.setText(Integer.toString(stats.getMessages().size()));
+		title.setText(stats.getMessages().subList(0, 5).toString());
 	    
 		setupActionBar();
 	}

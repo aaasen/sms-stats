@@ -17,20 +17,25 @@ public class SMS implements Serializable {
 	private static final long serialVersionUID = -4816869712631136352L;
 	private String body, address;
 	private Date date;
-	
-	public SMS(String body, String address, Date date) {
+	private boolean sent;
+
+	public SMS(String body, String address, Date date, int type) {
 		this.setBody(body);
 		this.setAddress(address);
 		this.setDate(date);
+		this.setSent(type);
 	}
-	
-	public SMS(String body, String address, String date) {
-		this(body, address, new Date(Long.parseLong(date)));
+
+	public SMS(String body, String address, String date, String type) {
+		this(body, address, 
+				new Date(Long.parseLong(date)),
+				Integer.parseInt(type));
 	}
-	
+
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("time: " + date.toString());
+		sb.append(" type: " + (sent ? "sent" : "received"));
+		sb.append(" time: " + date.toString());
 		sb.append(" from: " + address);
 		sb.append(" body: \"" + body + "\"");
 		return sb.toString();
@@ -44,4 +49,8 @@ public class SMS implements Serializable {
 
 	public Date getDate() { return date; }
 	public void setDate(Date date) { this.date = date; }
+
+	public boolean isSent() { return sent; }
+	public void setSent(boolean sent) { this.sent = sent; }
+	public void setSent(int type) { this.sent = type - 1 == 1; }
 }
