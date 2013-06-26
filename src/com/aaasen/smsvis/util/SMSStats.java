@@ -3,6 +3,8 @@ package com.aaasen.smsvis.util;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import android.content.Context;
+
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 
@@ -11,32 +13,31 @@ public class SMSStats implements Serializable {
 	private ArrayList<SMS> messages;
 	private ArrayList<Person> people;
 
-	public SMSStats(ArrayList<SMS> messages) {
-		this.setMessages(messages);
-		this.people = this.extractPeople(messages);
+	public SMSStats(Context context, ArrayList<SMS> messages) {
+		this.messages = messages;
+		this.people = this.extractPeople(context, messages);
 	}
 
 	public int getNumSent() {
+		//TODO: implement getNumSent()
 		return 0;
 	}
 
 	public int getNumReceived() {
+		//TODO: implement getNumReceived()
 		return 0;
 	}
 
 	public int getNumTotal() {
+		//TODO: implement getNumTotal()
 		return 0;
 	}
 
 	public ArrayList<SMS> getMessages() { return messages; }
-	public void setMessages(ArrayList<SMS> messages) { 
-		this.messages = messages;
-		this.people = this.extractPeople(messages);
-	}
 	
 	public ArrayList<Person> getPeople() { return people; }
 	
-	private ArrayList<Person> extractPeople(ArrayList<SMS> messages) {
+	private ArrayList<Person> extractPeople(Context context, ArrayList<SMS> messages) {
 		Multimap<String, SMS> map = ArrayListMultimap.create();
 
 		for (SMS message : messages) {
@@ -46,7 +47,7 @@ public class SMSStats implements Serializable {
 		ArrayList<Person> people = new ArrayList<Person>();
 
 		for (String address : map.keySet()) {
-			people.add(new Person(address, new ArrayList<SMS>(map.get(address))));
+			people.add(new Person(context, address, new ArrayList<SMS>(map.get(address))));
 		}
 		
 		return people;
