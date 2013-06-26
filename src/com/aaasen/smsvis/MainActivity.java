@@ -16,6 +16,12 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		SMSRetriever sms = new SMSRetriever(getApplicationContext());
+		ArrayList<SMS> messages = sms.fetch();
+		
+		TextView title = (TextView) getWindow().findViewById(R.id.text);
+	    title.setText(messages.subList(0, 5).toString());
 	}
 
 	@Override
