@@ -18,13 +18,25 @@ public class BasicStatsActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_basic_stats);
+		setupActionBar();
 		
 		stats = (SMSStats) getIntent().getSerializableExtra(MainActivity.STAT_EXTRA);
 		
-		TextView title = (TextView) findViewById(R.id.text);
-		title.setText(stats.getMessages().subList(0, 5).toString());
+		TextView timeView = (TextView) findViewById(R.id.time_period);
+		timeView.setText(stats.getMessages().get(0).getDate().toString());
+		
+		TextView sentView = (TextView) findViewById(R.id.sent_messages);
+		sentView.setText(Integer.toString(stats.getNumSent()));
 	    
-		setupActionBar();
+		TextView receivedView = (TextView) findViewById(R.id.received_messages);
+		receivedView.setText(Integer.toString(stats.getNumReceived()));
+		
+		TextView totalView = (TextView) findViewById(R.id.total_messages);
+		totalView.setText(Integer.toString(stats.getNumTotal()));
+		
+		TextView analysisView = (TextView) findViewById(R.id.analysis);
+		analysisView.setText("you cool");
+
 	}
 
 	/**

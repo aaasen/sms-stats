@@ -13,6 +13,18 @@ public class SMSStats implements Serializable {
 //		Multimap<String, SMS> msg = ArrayListMultimap.create();
 	}
 
+	public int getNumSent() {
+		return 0;
+	}
+	
+	public int getNumReceived() {
+		return 0;
+	}
+	
+	public int getNumTotal() {
+		return 0;
+	}
+	
 	public ArrayList<SMS> getMessages() { return messages; }
 	public void setMessages(ArrayList<SMS> messages) { this.messages = messages; }
 }
