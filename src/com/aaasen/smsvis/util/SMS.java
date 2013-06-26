@@ -1,5 +1,6 @@
 package com.aaasen.smsvis.util;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -12,7 +13,8 @@ import java.util.Date;
  * @author 
  */
 
-public class SMS {
+public class SMS implements Serializable {
+	private static final long serialVersionUID = -4816869712631136352L;
 	private String body, address;
 	private Date date;
 	

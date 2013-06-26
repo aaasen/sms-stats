@@ -1,14 +1,15 @@
 package com.aaasen.smsvis;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.widget.TextView;
 
 import com.aaasen.smsvis.util.SMSStats;
 
 public class MainActivity extends Activity {
-
+	public static final String STAT_EXTRA = "com.aaasen.smsvis.stats";
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -19,8 +20,9 @@ public class MainActivity extends Activity {
 	}
 
 	protected void onFetchSMS(SMSStats stats) {
-		TextView title = (TextView) getWindow().findViewById(R.id.text);
-	    title.setText(stats.getMessages().subList(0, 5).toString());
+	    Intent intent = new Intent(this, BasicStatsActivity.class);
+	    intent.putExtra(STAT_EXTRA, stats);
+	    startActivity(intent);
 	}
 	
 	@Override

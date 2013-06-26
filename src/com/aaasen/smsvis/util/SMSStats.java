@@ -1,8 +1,10 @@
 package com.aaasen.smsvis.util;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class SMSStats {
+public class SMSStats implements Serializable {
+	private static final long serialVersionUID = 5476524672958650942L;
 	private ArrayList<SMS> messages;
 	
 	public SMSStats(ArrayList<SMS> messages) {
