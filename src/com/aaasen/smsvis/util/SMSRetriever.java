@@ -8,14 +8,15 @@ import android.database.Cursor;
 import android.net.Uri;
 
 public class SMSRetriever {
+	public static final String DEFAULT_PROVIDER = "content://sms/";
 	private Context context;
 
 	public SMSRetriever(Context context) {
 		this.context = context;
 	}
 
-	public ArrayList<SMS> fetch() {
-		Cursor cursor = context.getContentResolver().query(Uri.parse("content://sms/inbox"),
+	public ArrayList<SMS> fetch(String provider) {
+		Cursor cursor = context.getContentResolver().query(Uri.parse(provider),
 				null, null, null, null);
 		cursor.moveToFirst();
 
@@ -37,5 +38,9 @@ public class SMSRetriever {
 		} while(cursor.moveToNext());
 
 		return messages;
+	}
+	
+	public ArrayList<SMS> fetch() {
+		return this.fetch(DEFAULT_PROVIDER);
 	}
 }
