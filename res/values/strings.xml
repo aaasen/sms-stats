@@ -6,10 +6,14 @@
     <string name="hello_world">Hello world!</string>
     
     <string name="title_activity_basic_stats">Basic Stats</string>
-	<string name="time_period_placeholder">42 days</string>
-	<string name="sent_messages_placeholder">sent 1337</string>
-	<string name="received_messages_placeholder">received 1024</string>
-	<string name="total_messages_placeholder">total 2361</string>
-	<string name="analysis_placeholder">People talk to you more than you talk to them.</string>
+    <string name="time_period_placeholder">42 days</string>
+    <string name="sent_messages_placeholder">sent 1337</string>
+    <string name="received_messages_placeholder">received 1024</string>
+    <string name="total_messages_placeholder">total 2361</string>
+    <string name="analysis_placeholder">People talk to you more than you talk to them.</string>
+    <string name="title_activity_people_stats">People</string>
 	
+	<string name="name_placeholder">Linux Torvalds</string>
+	<string name="message_count_placeholder">12</string>
+    
 </resources>

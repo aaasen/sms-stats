@@ -20,7 +20,7 @@ public class MainActivity extends Activity {
 	}
 
 	protected void onFetchSMS(SMSStats stats) {
-	    Intent intent = new Intent(this, BasicStatsActivity.class);
+	    Intent intent = new Intent(this, PeopleStatsActivity.class);
 	    intent.putExtra(STAT_EXTRA, stats);
 	    startActivity(intent);
 	}

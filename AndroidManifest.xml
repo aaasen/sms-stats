@@ -32,6 +32,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.aaasen.smsvis.MainActivity" />
         </activity>
+        <activity
+            android:name="com.aaasen.smsvis.PeopleStatsActivity"
+            android:label="@string/title_activity_people_stats"
+            android:parentActivityName="com.aaasen.smsvis.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.aaasen.smsvis.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
