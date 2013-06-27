@@ -16,6 +16,9 @@ import android.widget.ListView;
 
 import com.aaasen.smsvis.graph.EmbeddedWebViewClient;
 import com.aaasen.smsvis.util.Person;
+import com.aaasen.smsvis.util.SMSSerializer;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 public class MessageStatsActivity extends Activity {
 	private PeopleArrayAdapter adapter;
@@ -38,7 +41,10 @@ public class MessageStatsActivity extends Activity {
 		WebView webview = (WebView) findViewById(R.id.webview);
 		webview.setWebViewClient(new EmbeddedWebViewClient());
 		webview.getSettings().setJavaScriptEnabled(true);
-
+		
+	    Gson gson = new GsonBuilder().registerTypeAdapter(Person.class, new SMSSerializer()).create();
+	    String json = gson.toJson(person.getMessages());
+		
 		webview.loadUrl("file:///android_asset/graphs/index.html");
 	}
 
