@@ -1,5 +1,7 @@
 package com.aaasen.smsvis;
 
+import java.util.List;
+
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
@@ -13,7 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.aaasen.smsvis.util.DataSingleton;
-import com.aaasen.smsvis.util.SMSStats;
+import com.aaasen.smsvis.util.Person;
 
 public class PeopleStatsActivity extends Activity {
 	private PeopleArrayAdapter adapter;
@@ -24,8 +26,8 @@ public class PeopleStatsActivity extends Activity {
 		setContentView(R.layout.activity_people_stats);
 		setupActionBar();
 		
-		SMSStats stats = DataSingleton.getStats();
-		adapter = new PeopleArrayAdapter(this, R.id.people_list, stats.getPeople());
+		final List<Person> people = DataSingleton.getStats().getPeople();
+		adapter = new PeopleArrayAdapter(this, R.id.people_list, people);
 		
 		ListView listview = (ListView) findViewById(R.id.people_list);
 		listview.setAdapter(adapter);
@@ -33,8 +35,8 @@ public class PeopleStatsActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
 			    Intent intent = new Intent(PeopleStatsActivity.this, MessageStatsActivity.class);
-//			    intent.putExtra(MainActivity.PERSON_EXTRA, (Person) view.getTag());
-			    startActivity(intent);
+				intent.putExtra(MainActivity.PERSON_EXTRA, people.get(position));
+				startActivity(intent);
 			}
 		});
 	}

@@ -1,21 +1,34 @@
 package com.aaasen.smsvis;
 
-import android.os.Bundle;
+import java.util.ArrayList;
+
+import android.annotation.TargetApi;
 import android.app.Activity;
+import android.os.Build;
+import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.support.v4.app.NavUtils;
-import android.annotation.TargetApi;
-import android.os.Build;
+import android.widget.ListView;
+
+import com.aaasen.smsvis.util.Person;
 
 public class MessageStatsActivity extends Activity {
-
+	private PeopleArrayAdapter adapter;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_message_stats);
-		// Show the Up button in the action bar.
 		setupActionBar();
+		
+		Person person = (Person) getIntent().getSerializableExtra(MainActivity.PERSON_EXTRA);
+		ArrayList<Person> people = new ArrayList<Person>();
+		people.add(person);
+		adapter = new PeopleArrayAdapter(this, R.id.people_list, people);
+		
+		ListView listview = (ListView) findViewById(R.id.people_list);
+		listview.setAdapter(adapter);
 	}
 
 	/**
