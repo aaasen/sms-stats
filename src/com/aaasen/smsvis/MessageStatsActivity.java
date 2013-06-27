@@ -39,7 +39,7 @@ public class MessageStatsActivity extends Activity {
 		webview.setWebViewClient(new EmbeddedWebViewClient());
 		webview.getSettings().setJavaScriptEnabled(true);
 
-		webview.loadUrl("http://google.com/");
+		webview.loadUrl("file:///android_asset/sherlock/index.html");
 	}
 
 	/**
