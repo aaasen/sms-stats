@@ -1,7 +1,9 @@
 package com.aaasen.smsvis;
 
+
 import java.util.ArrayList;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.os.Build;
@@ -9,26 +11,35 @@ import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebView;
 import android.widget.ListView;
 
+import com.aaasen.smsvis.graph.EmbeddedWebViewClient;
 import com.aaasen.smsvis.util.Person;
 
 public class MessageStatsActivity extends Activity {
 	private PeopleArrayAdapter adapter;
-	
+
+	@SuppressLint("SetJavaScriptEnabled")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_message_stats);
 		setupActionBar();
-		
+
 		Person person = (Person) getIntent().getSerializableExtra(MainActivity.PERSON_EXTRA);
 		ArrayList<Person> people = new ArrayList<Person>();
 		people.add(person);
 		adapter = new PeopleArrayAdapter(this, R.id.people_list, people);
-		
+
 		ListView listview = (ListView) findViewById(R.id.people_list);
 		listview.setAdapter(adapter);
+
+		WebView webview = (WebView) findViewById(R.id.webview);
+		webview.setWebViewClient(new EmbeddedWebViewClient());
+		webview.getSettings().setJavaScriptEnabled(true);
+
+		webview.loadUrl("http://google.com/");
 	}
 
 	/**
