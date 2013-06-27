@@ -25,7 +25,7 @@ public class PeopleStatsActivity extends Activity {
 		setupActionBar();
 		
 		SMSStats stats = DataSingleton.getStats();
-		adapter = new PeopleArrayAdapter(this, R.id.people_list, stats);
+		adapter = new PeopleArrayAdapter(this, R.id.people_list, stats.getPeople());
 		
 		ListView listview = (ListView) findViewById(R.id.people_list);
 		listview.setAdapter(adapter);

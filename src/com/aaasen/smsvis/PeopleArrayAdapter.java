@@ -1,5 +1,7 @@
 package com.aaasen.smsvis;
 
+import java.util.List;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,13 +13,13 @@ import com.aaasen.smsvis.util.Person;
 import com.aaasen.smsvis.util.SMSStats;
 
 public class PeopleArrayAdapter extends ArrayAdapter<Person> {
-	private SMSStats stats;
+	private List<Person> people;
 	private final Context context;
 
-	public PeopleArrayAdapter(Context context, int textViewResourceIdList, SMSStats stats) {
-		super(context, R.layout.person_fragment, stats.getPeople());
+	public PeopleArrayAdapter(Context context, int textViewResourceIdList, List<Person> people) {
+		super(context, R.layout.person_fragment, people);
 		this.context = context;
-		this.stats = stats;
+		this.people = people;
 	}
 
 	@Override
@@ -25,7 +27,7 @@ public class PeopleArrayAdapter extends ArrayAdapter<Person> {
 		LayoutInflater inflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		
-		Person person = stats.getPeople().get(position);
+		Person person = people.get(position);
 		
 		View personView = inflater.inflate(R.layout.person_fragment, parent, false);
 	    

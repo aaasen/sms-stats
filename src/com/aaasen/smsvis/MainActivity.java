@@ -25,7 +25,6 @@ public class MainActivity extends Activity {
 		DataSingleton.setStats(stats);
 		
 	    Intent intent = new Intent(this, PeopleStatsActivity.class);
-//	    intent.putExtra(STAT_EXTRA, stats);
 	    startActivity(intent);
 	}
 	
