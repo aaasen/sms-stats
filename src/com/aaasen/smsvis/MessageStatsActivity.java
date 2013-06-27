@@ -1,42 +1,21 @@
 package com.aaasen.smsvis;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.NavUtils;
+import android.app.Activity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
+import android.support.v4.app.NavUtils;
+import android.annotation.TargetApi;
+import android.os.Build;
 
-import com.aaasen.smsvis.util.DataSingleton;
-import com.aaasen.smsvis.util.SMSStats;
+public class MessageStatsActivity extends Activity {
 
-public class PeopleStatsActivity extends Activity {
-	private PeopleArrayAdapter adapter;
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_people_stats);
+		setContentView(R.layout.activity_message_stats);
+		// Show the Up button in the action bar.
 		setupActionBar();
-		
-		SMSStats stats = DataSingleton.getStats();
-		adapter = new PeopleArrayAdapter(this, R.id.people_list, stats);
-		
-		ListView listview = (ListView) findViewById(R.id.people_list);
-		listview.setAdapter(adapter);
-		listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
-			    Intent intent = new Intent(PeopleStatsActivity.this, MessageStatsActivity.class);
-//			    intent.putExtra(MainActivity.PERSON_EXTRA, (Person) view.getTag());
-			    startActivity(intent);
-			}
-		});
 	}
 
 	/**
@@ -52,7 +31,7 @@ public class PeopleStatsActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.people_stats, menu);
+		getMenuInflater().inflate(R.menu.message_stats, menu);
 		return true;
 	}
 

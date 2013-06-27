@@ -5,10 +5,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 
+import com.aaasen.smsvis.util.DataSingleton;
 import com.aaasen.smsvis.util.SMSStats;
 
 public class MainActivity extends Activity {
-	public static final String STAT_EXTRA = "com.aaasen.smsvis.stats";
+	public static final String PERSON_EXTRA = "com.aaasen.smsvis.person";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +21,11 @@ public class MainActivity extends Activity {
 	}
 
 	protected void onFetchSMS(SMSStats stats) {
+		DataSingleton.getInstance();
+		DataSingleton.setStats(stats);
+		
 	    Intent intent = new Intent(this, PeopleStatsActivity.class);
-	    intent.putExtra(STAT_EXTRA, stats);
+//	    intent.putExtra(STAT_EXTRA, stats);
 	    startActivity(intent);
 	}
 	

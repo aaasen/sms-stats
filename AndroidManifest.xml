@@ -9,7 +9,7 @@
         android:targetSdkVersion="17" />
 
     <uses-permission android:name="android.permission.READ_SMS" />
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
         android:allowBackup="true"
@@ -40,6 +40,14 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.aaasen.smsvis.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.aaasen.smsvis.MessageStatsActivity"
+            android:label="@string/title_activity_message_stats"
+            android:parentActivityName="com.aaasen.smsvis.PeopleStatsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.aaasen.smsvis.PeopleStatsActivity" />
         </activity>
     </application>
 
