@@ -9,7 +9,7 @@ import android.net.Uri;
 import android.provider.ContactsContract.PhoneLookup;
 import android.util.Log;
 
-public class Person implements Serializable {
+public class Person implements Serializable, Comparable<Person> {
 	private static final long serialVersionUID = 7890061410624884251L;
 	private static final String DEFAULT_NAME = "Unknown";
 	
@@ -54,6 +54,11 @@ public class Person implements Serializable {
 		return name;
 	}
 
+	@Override
+	public int compareTo(Person person) {
+		return person.messages.size() - this.messages.size();
+	}
+	
 	public String getName() { return name; }
 	
 	public String getAddress() { return address; }

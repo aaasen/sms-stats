@@ -1,7 +1,6 @@
 package com.aaasen.smsvis;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +16,6 @@ public class PeopleArrayAdapter extends ArrayAdapter<Person> {
 
 	public PeopleArrayAdapter(Context context, int textViewResourceIdList, SMSStats stats) {
 		super(context, R.layout.person_fragment, stats.getPeople());
-		Log.d("people", Integer.toString(stats.getPeople().size()));
 		this.context = context;
 		this.stats = stats;
 	}

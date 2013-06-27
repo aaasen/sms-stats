@@ -2,6 +2,7 @@ package com.aaasen.smsvis.util;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import android.content.Context;
 
@@ -50,6 +51,7 @@ public class SMSStats implements Serializable {
 			people.add(new Person(context, address, new ArrayList<SMS>(map.get(address))));
 		}
 		
+		Collections.sort(people);
 		return people;
 	}
 }
