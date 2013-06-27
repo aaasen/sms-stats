@@ -31,6 +31,25 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/name"
         android:layout_below="@+id/name"
+        android:paddingRight="8dp"
         android:text="@string/message_count_placeholder" />
+
+    <TextView
+        android:id="@+id/sent_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/message_count"
+        android:layout_alignBottom="@+id/message_count"
+        android:layout_toRightOf="@+id/message_count"
+        android:text="@string/sent_count_placeholder" />
+
+    <TextView
+        android:id="@+id/received_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/sent_count"
+        android:layout_alignBottom="@+id/sent_count"
+        android:layout_toRightOf="@+id/sent_count"
+        android:text="@string/received_count_placeholder" />
 
 </RelativeLayout>

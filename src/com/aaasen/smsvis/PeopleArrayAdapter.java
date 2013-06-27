@@ -36,8 +36,13 @@ public class PeopleArrayAdapter extends ArrayAdapter<Person> {
 	    address.setText(person.getAddress());
 	    
 		TextView messageCount = (TextView) personView.findViewById(R.id.message_count);
-	    messageCount.setText(Integer.toString(person.getMessages().size()) + 
-	    		" messages");
+	    messageCount.setText(SMSStats.getNumTotal(person.getMessages()) + " messages");
+
+		TextView sentCount = (TextView) personView.findViewById(R.id.sent_count);
+	    sentCount.setText("(" + SMSStats.getNumSent(person.getMessages()) + " sent, ");
+	    
+		TextView receivedCount = (TextView) personView.findViewById(R.id.received_count);
+		receivedCount.setText(SMSStats.getNumReceived(person.getMessages()) + " recieved)");
 	    
 	    personView.setTag(person);
 	    

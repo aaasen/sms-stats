@@ -20,16 +20,28 @@ public class SMSStats implements Serializable {
 	}
 
 	public int getNumSent() {
+		return getNumSent(this.messages);
+	}
+	
+	public int getNumReceived() {
+		return getNumReceived(this.messages);
+	}
+	
+	public int getNumTotal() {
+		return getNumTotal(this.messages);
+	}
+	
+	public static int getNumSent(ArrayList<SMS> messages) {
 		//TODO: implement getNumSent()
 		return 0;
 	}
 
-	public int getNumReceived() {
+	public static int getNumReceived(ArrayList<SMS> messages) {
 		//TODO: implement getNumReceived()
 		return 0;
 	}
 
-	public int getNumTotal() {
+	public static int getNumTotal(ArrayList<SMS> messages) {
 		//TODO: implement getNumTotal()
 		return 0;
 	}

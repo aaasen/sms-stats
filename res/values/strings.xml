@@ -16,5 +16,7 @@
 	<string name="name_placeholder">Linux Torvalds</string>
 	<string name="address_placeholder">(123) 456 7890</string>
 	<string name="message_count_placeholder">402 messages</string>
+	<string name="sent_count_placeholder">(40 sent, </string>
+	<string name="received_count_placeholder">362 received)</string>
     
 </resources>
