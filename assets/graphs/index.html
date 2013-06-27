@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Sherlock</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+        <link rel="stylesheet" href="static/css/reset.css">
+        <link rel="stylesheet" href="static/css/defaults.css">
+        <link rel="stylesheet" href="static/css/sherlock.css">
+        <link rel="stylesheet" href="static/css/charts.css">
+
+        <script src="static/js/jquery-2.0.0.min.js"></script>
+        <script src="static/js/d3.v3.min.js" charset="utf-8"></script>
+        <script src="static/js/md5.min.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                var messages = [
+                    {
+                        "body": "hello, world",
+                        "address": "1234567890",
+                        "time": 1,
+                        "sent": false
+                    },
+                    {
+                        "body": "yo what up",
+                        "address": "1230987654",
+                        "time": 2,
+                        "sent": true
+                    },
+                    {
+                        "body": "not much you",
+                        "address": "1230987654",
+                        "time": 3,
+                        "sent": false
+                    },
+                    {
+                        "body": "at studentrnd coding stuff",
+                        "address": "1230987654",
+                        "time": 4,
+                        "sent": true
+                    },
+                    {
+                        "body": "I like turtles",
+                        "address": "1230987654",
+                        "time": 2,
+                        "sent": false
+                    }
+                ];
+
+                var data = {
+                    "messages" : messages,
+                    "w" : 400,
+                    "h" : 100
+                }
+
+                window.aaasenSmsData = data;
+            });
+        </script>
+
+        <script src="static/js/punchcard.js"></script>
+        <script src="static/js/make-charts.js"></script>
+    </head> 
+
+    <body>
+        <div id="content">
+            
+        </div>
+    </body>
+</html>

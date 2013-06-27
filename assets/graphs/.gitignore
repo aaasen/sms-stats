@@ -1,0 +1,6 @@
+venv/
+
+*.pyc
+*.sqlite
+*.json
+*.xcf
