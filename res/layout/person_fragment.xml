@@ -11,20 +11,26 @@
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/message_count"
+        android:paddingRight="8dp"
         android:text="@string/name_placeholder" />
+
+    <TextView
+        android:id="@+id/address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/name"
+        android:layout_alignBottom="@+id/name"
+        android:layout_toRightOf="@+id/name"
+        android:text="@string/address_placeholder"
+        android:textColor="@color/muted"
+        android:textStyle="italic" />
 
     <TextView
         android:id="@+id/message_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerInParent="true"
-        android:layout_marginLeft="16dp"
-        android:text="@string/message_count_placeholder"
-        android:textStyle="bold" />
+        android:layout_alignLeft="@+id/name"
+        android:layout_below="@+id/name"
+        android:text="@string/message_count_placeholder" />
 
 </RelativeLayout>

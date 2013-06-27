@@ -34,11 +34,12 @@ public class PeopleArrayAdapter extends ArrayAdapter<Person> {
 		TextView name = (TextView) personView.findViewById(R.id.name);
 	    name.setText(person.getName());
 		
-//	    TextView address = (TextView) personView.findViewById(R.id.address);
-//	    address.setText(person.getAddress());
+	    TextView address = (TextView) personView.findViewById(R.id.address);
+	    address.setText(person.getAddress());
 	    
 		TextView messageCount = (TextView) personView.findViewById(R.id.message_count);
-	    messageCount.setText(Integer.toString(person.getMessages().size()));
+	    messageCount.setText(Integer.toString(person.getMessages().size()) + 
+	    		" messages");
 	    
 	    personView.setTag(person);
 	    

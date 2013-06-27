@@ -14,7 +14,7 @@
     <string name="title_activity_people_stats">People</string>
 	
 	<string name="name_placeholder">Linux Torvalds</string>
-	<string name="address_placeholder">0123456789</string>
-	<string name="message_count_placeholder">12</string>
+	<string name="address_placeholder">(123) 456 7890</string>
+	<string name="message_count_placeholder">402 messages</string>
     
 </resources>
