@@ -32,18 +32,31 @@ public class SMSStats implements Serializable {
 	}
 	
 	public static int getNumSent(ArrayList<SMS> messages) {
-		//TODO: implement getNumSent()
-		return 0;
+		int count = 0;
+		
+		for (SMS message : messages) {
+			if (!message.isSent()) {
+				count++;
+			}
+		}
+		
+		return count;
 	}
 
 	public static int getNumReceived(ArrayList<SMS> messages) {
-		//TODO: implement getNumReceived()
-		return 0;
+		int count = 0;
+		
+		for (SMS message : messages) {
+			if (message.isSent()) {
+				count++;
+			}
+		}
+		
+		return count;
 	}
 
 	public static int getNumTotal(ArrayList<SMS> messages) {
-		//TODO: implement getNumTotal()
-		return 0;
+		return messages.size();
 	}
 
 	public ArrayList<SMS> getMessages() { return messages; }
