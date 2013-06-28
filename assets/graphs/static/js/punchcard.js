@@ -22,6 +22,11 @@ Punchcard.prototype.graph = function(svg) {
         return d["time"];
     }));
 
+    console.log(earliest);
+    console.log(latest);
+    // console.log(0 + this.padding.left);
+    // console.log(this.w - this.padding.right);
+
     var xScale = d3.time.scale()
         .domain([earliest, latest])
         .rangeRound([0 + this.padding.left, this.w - this.padding.right]);
@@ -55,10 +60,13 @@ Punchcard.prototype.graph = function(svg) {
             return yScale(d["address"]);
         })
         .attr("r", function(d) {
-            return 2;
+            return 4;
         })
         .attr("fill", function(d) {
             return("#" + md5(d["address"]).substring(0, 6));
+        })
+        .attr("opacity", function(d) {
+            return "0.1";
         });
 
     this.svg.append("g")

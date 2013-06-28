@@ -5,6 +5,7 @@
         <meta charset="utf-8">
         <title>Sherlock</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<!--  -->
 
         <link rel="stylesheet" href="static/css/reset.css">
         <link rel="stylesheet" href="static/css/defaults.css">
@@ -17,56 +18,26 @@
 
         <script type="text/javascript">
             $(document).ready(function () {
-                var messages = [
-                    {
-                        "body": "hello, world",
-                        "address": "1234567890",
-                        "time": 1,
-                        "sent": false
-                    },
-                    {
-                        "body": "yo what up",
-                        "address": "1230987654",
-                        "time": 2,
-                        "sent": true
-                    },
-                    {
-                        "body": "not much you",
-                        "address": "1230987654",
-                        "time": 3,
-                        "sent": false
-                    },
-                    {
-                        "body": "at studentrnd coding stuff",
-                        "address": "1230987654",
-                        "time": 4,
-                        "sent": true
-                    },
-                    {
-                        "body": "I like turtles",
-                        "address": "1230987654",
-                        "time": 2,
-                        "sent": false
-                    }
-                ];
+                var messages =' $$$';
+                // var messages = '[{"body":"Reddit","address":"14254096187","time":1353306241,"sent":true},{"body":"Hello","address":"14254096187","time":1350420037,"sent":true},{"body":"Hello","address":"14254096187","time":1350419706,"sent":true},{"body":"Hello","address":"14254096187","time":1350419871,"sent":true}]';
 
                 var data = {
-                    "messages" : messages,
-                    "w" : 400,
-                    "h" : 100
+                    "messages" : $.parseJSON(messages),
+                    "w" : 480,
+                    "h" : 200
                 }
 
                 window.aaasenSmsData = data;
+
             });
         </script>
-
         <script src="static/js/punchcard.js"></script>
         <script src="static/js/make-charts.js"></script>
     </head> 
 
     <body>
         <div id="content">
-            
+
         </div>
     </body>
 </html>

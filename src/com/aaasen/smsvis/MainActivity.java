@@ -24,8 +24,12 @@ public class MainActivity extends Activity {
 		DataSingleton.getInstance();
 		DataSingleton.setStats(stats);
 		
-	    Intent intent = new Intent(this, PeopleStatsActivity.class);
-	    startActivity(intent);
+//	    Intent intent = new Intent(this, PeopleStatsActivity.class);
+//	    startActivity(intent);
+	    
+	    Intent intent = new Intent(MainActivity.this, MessageStatsActivity.class);
+		intent.putExtra(MainActivity.PERSON_EXTRA, DataSingleton.getStats().getPeople().get(1));
+		startActivity(intent);
 	}
 	
 	@Override

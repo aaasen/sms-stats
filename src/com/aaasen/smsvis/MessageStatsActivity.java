@@ -1,11 +1,14 @@
 package com.aaasen.smsvis;
 
 
+import java.io.BufferedInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.res.AssetManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
@@ -16,11 +19,13 @@ import android.widget.ListView;
 
 import com.aaasen.smsvis.graph.EmbeddedWebViewClient;
 import com.aaasen.smsvis.util.Person;
+import com.aaasen.smsvis.util.SMS;
 import com.aaasen.smsvis.util.SMSSerializer;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 public class MessageStatsActivity extends Activity {
+	private static final String DATA_ID = "$$$";
 	private PeopleArrayAdapter adapter;
 
 	@SuppressLint("SetJavaScriptEnabled")
@@ -42,10 +47,24 @@ public class MessageStatsActivity extends Activity {
 		webview.setWebViewClient(new EmbeddedWebViewClient());
 		webview.getSettings().setJavaScriptEnabled(true);
 		
-	    Gson gson = new GsonBuilder().registerTypeAdapter(Person.class, new SMSSerializer()).create();
+	    Gson gson = new GsonBuilder().registerTypeAdapter(SMS.class, new SMSSerializer()).create();
 	    String json = gson.toJson(person.getMessages());
 		
-		webview.loadUrl("file:///android_asset/graphs/index.html");
+//		webview.loadUrl("file:///android_asset/graphs/index.html");
+		
+		AssetManager manager = this.getAssets();
+
+		BufferedInputStream fileStream = null;
+		try {
+			fileStream = new BufferedInputStream(manager.open("graphs/index.html"));
+			java.util.Scanner s = new java.util.Scanner(fileStream, "UTF-8").useDelimiter("\\A");
+		    String file = s.hasNext() ? s.next() : "";
+			file = file.replace(DATA_ID, json);
+			
+			webview.loadDataWithBaseURL("file:///android_asset/graphs/", file, "text/html", "UTF-8", "");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**

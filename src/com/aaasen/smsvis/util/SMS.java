@@ -42,17 +42,17 @@ public class SMS implements Serializable {
 	}
 
 	public String getBody() { return body; }
-	public void setBody(String body) { this.body = body; }
+	private void setBody(String body) { this.body = body; }
 
 	public String getAddress() { return address; }
-	public void setAddress(String address) { this.address = address; }
+	private void setAddress(String address) { this.address = address; }
 
 	public Date getDate() { return date; }
-	public void setDate(Date date) { this.date = date; }
+	private void setDate(Date date) { this.date = date; }
 
 	public boolean isSent() { return sent; }
-	public void setSent(boolean sent) { this.sent = sent; }
-	public void setSent(int type) { this.sent = type - 1 == 1; }
+	private void setSent(boolean sent) { this.sent = sent; }
+	private void setSent(int type) { this.setSent(this.sent = type - 1 == 1); }
 }
 
 

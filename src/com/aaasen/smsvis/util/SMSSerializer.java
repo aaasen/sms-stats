@@ -15,7 +15,7 @@ public class SMSSerializer implements JsonSerializer<SMS> {
 		JsonObject result = new JsonObject();
 		result.add("body", new JsonPrimitive(message.getBody()));
 		result.add("address", new JsonPrimitive(message.getAddress()));
-		result.add("time", new JsonPrimitive(message.getDate().getTime()));
+		result.add("time", new JsonPrimitive(message.getDate().getTime() / 1000));
 		result.add("sent", new JsonPrimitive(message.isSent()));
 
 		return result;
