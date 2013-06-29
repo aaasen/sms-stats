@@ -23,9 +23,7 @@ $(document).ready(function () {
 
         x["dayTime"] = ms["hour"] * dayScale(x["time"] % ms["day"]);
         x["weekTime"] = ms["day"] * weekScale(x["time"] % ms["week"]);
-
-        // console.log(x.weekTime);
-
+        
         return x;
     });
 

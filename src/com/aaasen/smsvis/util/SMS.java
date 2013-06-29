@@ -3,6 +3,8 @@ package com.aaasen.smsvis.util;
 import java.io.Serializable;
 import java.util.Date;
 
+import android.text.TextUtils;
+
 /**
  * A simple container for SMS message data.
  * 
@@ -20,7 +22,7 @@ public class SMS implements Serializable {
 	private boolean sent;
 
 	public SMS(String body, String address, Date date, int type) {
-		this.setBody(body);
+		this.setBody(TextUtils.htmlEncode(body));
 		this.setAddress(address);
 		this.setDate(date);
 		this.setSent(type);

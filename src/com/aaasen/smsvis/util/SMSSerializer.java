@@ -13,7 +13,6 @@ public class SMSSerializer implements JsonSerializer<SMS> {
 	@Override
 	public JsonElement serialize(SMS message, Type type, JsonSerializationContext context) {
 		JsonObject result = new JsonObject();
-		result.add("body", new JsonPrimitive(message.getBody()));
 		result.add("address", new JsonPrimitive(message.getAddress()));
 		result.add("time", new JsonPrimitive(message.getDate().getTime() / 1000));
 		result.add("sent", new JsonPrimitive(message.isSent()));

@@ -2,7 +2,7 @@
 .axis path,
 .axis line {
     fill: none;
-    stroke: #888;
+    stroke: #222;
     shape-rendering: crispEdges;
 }
 
