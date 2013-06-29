@@ -23,7 +23,7 @@ public class SMS implements Serializable {
 
 	public SMS(String body, String address, Date date, int type) {
 		this.setBody(TextUtils.htmlEncode(body));
-		this.setAddress(address);
+		this.setAddress(PhoneUtils.formatNumber(address));
 		this.setDate(date);
 		this.setSent(type);
 	}
