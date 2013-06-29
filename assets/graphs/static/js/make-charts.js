@@ -19,12 +19,12 @@ $(document).ready(function () {
 
         var weekScale = d3.scale.linear()
             .domain([0, ms["week"]])
-            .rangeRound([1, 7]);
+            .rangeRound([0, 6]);
 
         x["dayTime"] = ms["hour"] * dayScale(x["time"] % ms["day"]);
         x["weekTime"] = ms["day"] * weekScale(x["time"] % ms["week"]);
 
-        console.log(x.weekTime);
+        // console.log(x.weekTime);
 
         return x;
     });

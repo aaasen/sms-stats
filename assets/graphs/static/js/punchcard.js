@@ -109,7 +109,7 @@ Punchcard.prototype.graph = function(svg) {
         .attr("cx", function(d) {
             return xScale(new Date(d["dayTime"]));
         })
-        .attr("cy", function(d) {
+        .attr("cy", function(d) {  
             return yScale(new Date(d["weekTime"] - 58000000));
         })
         .attr("r", function(d) {
