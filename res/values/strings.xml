@@ -3,7 +3,6 @@
 
     <string name="app_name">SMS Visualizer</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
     <string name="title_activity_basic_stats">Basic Stats</string>
     <string name="time_period_placeholder">42 days</string>
     <string name="sent_messages_placeholder">sent 1337</string>
@@ -16,6 +15,6 @@
     <string name="message_count_placeholder">402 messages</string>
     <string name="sent_count_placeholder">(40 sent, </string>
     <string name="received_count_placeholder">362 received)</string>
-    <string name="title_activity_message_stats">MessageStatsActivity</string>
+    <string name="title_activity_message_stats">Punchcard</string>
 
 </resources>

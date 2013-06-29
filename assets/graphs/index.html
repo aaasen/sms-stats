@@ -1,11 +1,10 @@
-
+ 
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Sherlock</title>
+        <title>SMSvis</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-<!--  -->
 
         <link rel="stylesheet" href="static/css/reset.css">
         <link rel="stylesheet" href="static/css/defaults.css">
@@ -18,8 +17,7 @@
 
         <script type="text/javascript">
             $(document).ready(function () {
-                var messages =' $$$';
-                // var messages = '[{"body":"Reddit","address":"14254096187","time":1353306241,"sent":true},{"body":"Hello","address":"14254096187","time":1350420037,"sent":true},{"body":"Hello","address":"14254096187","time":1350419706,"sent":true},{"body":"Hello","address":"14254096187","time":1350419871,"sent":true}]';
+                var messages = '{messages}';
 
                 var data = {
                     "messages" : $.parseJSON(messages),
@@ -28,7 +26,6 @@
                 }
 
                 window.aaasenSmsData = data;
-
             });
         </script>
         <script src="static/js/punchcard.js"></script>

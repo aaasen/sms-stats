@@ -25,7 +25,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 public class MessageStatsActivity extends Activity {
-	private static final String DATA_ID = "$$$";
+	private static final String MESSAGES_IDENTIFIER = "{messages}";
 	private PeopleArrayAdapter adapter;
 
 	@SuppressLint("SetJavaScriptEnabled")
@@ -50,8 +50,6 @@ public class MessageStatsActivity extends Activity {
 	    Gson gson = new GsonBuilder().registerTypeAdapter(SMS.class, new SMSSerializer()).create();
 	    String json = gson.toJson(person.getMessages());
 		
-//		webview.loadUrl("file:///android_asset/graphs/index.html");
-		
 		AssetManager manager = this.getAssets();
 
 		BufferedInputStream fileStream = null;
@@ -59,7 +57,7 @@ public class MessageStatsActivity extends Activity {
 			fileStream = new BufferedInputStream(manager.open("graphs/index.html"));
 			java.util.Scanner s = new java.util.Scanner(fileStream, "UTF-8").useDelimiter("\\A");
 		    String file = s.hasNext() ? s.next() : "";
-			file = file.replace(DATA_ID, json);
+			file = file.replace(MESSAGES_IDENTIFIER, json);
 			
 			webview.loadDataWithBaseURL("file:///android_asset/graphs/", file, "text/html", "UTF-8", "");
 		} catch (IOException e) {
