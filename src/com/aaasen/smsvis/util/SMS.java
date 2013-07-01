@@ -54,7 +54,7 @@ public class SMS implements Serializable {
 
 	public boolean isSent() { return sent; }
 	private void setSent(boolean sent) { this.sent = sent; }
-	private void setSent(int type) { this.setSent(this.sent = type - 1 == 1); }
+	private void setSent(int type) { this.setSent(this.sent = type - 1 != 1); }
 }
 
 
